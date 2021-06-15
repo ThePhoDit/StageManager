@@ -15,4 +15,4 @@ Easily manage who speaks next in your stage channel by the order members raised 
 TOKEN=YOUR_TOKEN_GOES_HERE
 ```
 3. Edit the fields __prefix__ and __priorityRoles__ from the `index.js` file as stated there.
-4. Run the file `node .`.
+4. Run the file with `node .` .
