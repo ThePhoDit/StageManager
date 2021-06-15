@@ -32,7 +32,6 @@ async function nextSpeaker(members) {
 		return member;
 	}
 
-		console.log(members.size);
 	const next = await nextSpeakerByOrder(members);
 	if (!next) return null;
 	return next;
