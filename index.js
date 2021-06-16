@@ -45,14 +45,15 @@ const client = new Client({
 client.on('message', async (msg) => {
 	if (msg.author.bot) return;
 	if (!msg.member.permissions.has('MOVE_MEMBERS')) return;
-	if (!msg.member.voice.channelID || msg.member.voice.channel.type !== 'stage')
-		return msg.channel.send('You are not on a stage channel.');
 
 	if (!msg.content.startsWith(prefix)) return;
 	const args = msg.content.trim().split(/ +/g);
 	if (args[0] === prefix) return;
 	const command = args.shift().slice(prefix.length);
 	if (!command) return;
+
+	if (!msg.member.voice.channelID || msg.member.voice.channel.type !== 'stage')
+		return msg.channel.send('You are not on a stage channel.');
 
 	if (command === 'start') {
 		const member = await nextSpeaker(msg.member.voice.channel.members);
